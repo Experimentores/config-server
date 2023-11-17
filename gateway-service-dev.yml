@@ -14,14 +14,12 @@ spring:
         - id: products-microservice
           uri: lb://products-microservice
           predicates:
-            - Path=/api/tripstore/v1/products/**
-            - Path=/api/tripstore/v1/product-categories/**
+            - Path=/api/tripstore/v1/products/**,/api/tripstore/v1/product-categories/**
 
         - id: trips-microservice
           uri: lb://trips-microservice
           predicates:
-            - Path=/api/tripstore/v1/trips/**
-            - Path=/api/tripstore/v1/cities/**
+            - Path=/api/tripstore/v1/trips/**,/api/tripstore/v1/cities/**
 
         - id: orders-microservice
           uri: lb://orders-microservice
