@@ -1,0 +1,39 @@
+spring:
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+
+      routes:
+        - id: users-microservice
+          uri: lb://users-microservice
+          predicates:
+            - Path=/api/tripstore/v1/users/**
+
+        - id: products-microservice
+          uri: lb://products-microservice
+          predicates:
+            - Path=/api/tripstore/v1/products/**
+            - Path=/api/tripstore/v1/product-categories/**
+
+        - id: trips-microservice
+          uri: lb://trips-microservice
+          predicates:
+            - Path=/api/tripstore/v1/trips/**
+            - Path=/api/tripstore/v1/cities/**
+
+        - id: orders-microservice
+          uri: lb://orders-microservice
+          predicates:
+            - Path=/api/tripstore/v1/orders/**
+
+        - id: shopping-carts-microservice
+          uri: lb://shopping-carts-microservice
+          predicates:
+            - Path=/api/tripstore/v1/shopping-carts/**
+
+        - id: cart-items-microservice
+          uri: lb://cart-items-microservice
+          predicates:
+            - Path=/api/tripstore/v1/cart-items/**
